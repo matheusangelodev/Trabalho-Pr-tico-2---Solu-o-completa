@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estatísticas de Destinos</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    canvas {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      height: 400px;
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estatísticas dos Pontos Turísticos por Categoria</h1>
+  <canvas id="graficoCategorias"></canvas>
+
+  <h1>Top 5 Pontos Turísticos Mais Visitados</h1>
+  <canvas id="graficoMaisVisitados"></canvas>
+
+  <script>
+    fetch("http://localhost:3000/estatistica")
+      .then(response => response.json())
+      .then(estatistica => {
+        // --- Gráfico categorias ---
+        const categorias = {};
+        estatistica.forEach(estatistica => {
+          const cat = estatistica.categoria.toLowerCase();
+          categorias[cat] = (categorias[cat] || 0) + 1;
+        });
+
+        const labelsCategorias = Object.keys(categorias);
+        const dadosCategorias = Object.values(categorias);
+
+        const ctxCategorias = document.getElementById("graficoCategorias").getContext("2d");
+        new Chart(ctxCategorias, {
+          type: "bar",
+          data: {
+            labels: labelsCategorias,
+            datasets: [{
+              label: "Número de destinos",
+              data: dadosCategorias,
+              backgroundColor: [
+                "#36A2EB", "#FF6384", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40"
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 1
+              }
+            }
+          }
+        });
+
+        // --- Gráfico destinos mais visitados ---
+        const topVisitados = estatistica
+          .sort((a,b) => b.visitas - a.visitas)
+          .slice(0, 5);
+
+        const labelsVisitados = topVisitados.map(d => d.nome);
+        const dadosVisitados = topVisitados.map(d => d.visitas);
+
+        const ctxVisitados = document.getElementById("graficoMaisVisitados").getContext("2d");
+        new Chart(ctxVisitados, {
+          type: "bar",
+          data: {
+            labels: labelsVisitados,
+            datasets: [{
+              label: "Número de visitas",
+              data: dadosVisitados,
+              backgroundColor: "#4BC0C0",
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 100
+              }
+            }
+          }
+        });
+      })
+      .catch(err => {
+        console.error("Erro ao buscar estatistica:", err);
+      });
+  </script>
+</body>
+</html>

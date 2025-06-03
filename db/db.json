@@ -1,62 +1,62 @@
 {
-  "MelhoresDestinos": [
-    {
-      "id": "1",
-      "name": "Bhutan",
-      "image": "assets/img/destination-1.jpg",
-      "description": "Bhutan é um reino budista nas montanhas do Himalaia, famoso por seus mosteiros, fortalezas e paisagens espetaculares."
-    },
-    {
-      "id": "2",
-      "name": "Japan",
-      "image": "assets/img/destination-2.jpg",
-      "description": "O Japão combina tradição e tecnologia com templos antigos, culinária rica e paisagens impressionantes como o Monte Fuji."
-    },
-    {
-      "id": "3",
-      "name": "Nepal",
-      "image": "assets/img/destination-3.jpg",
-      "description": "Nepal abriga o Monte Everest e é conhecido por suas trilhas de trekking, templos e cultura espiritual vibrante."
-    }
-  ],
-  "destinos": [
-    {
-      "id": "1",
-      "name": "Thailand City Tour",
-      "image": "assets/img/package-1.jpg",
-      "description": "Explore the vibrant culture and stunning landscapes of Thailand's bustling cities."
-    },
-    {
-      "id": "2",
-      "name": "Laos City Tour",
-      "image": "assets/img/package-2.jpg",
-      "description": "Immerse yourself in the rich culture and stunning landscapes of Laos."
-    },
-    {
-      "id": "3",
-      "name": "Singapore City Tour",
-      "image": "assets/img/package-3.jpg",
-      "description": "Experience the vibrant blend of culture, cuisine, and cutting-edge architecture."
-    }
-  ],
   "usuarios": [
     {
-      "id": "1",
-      "name": "Michael Lee",
-      "image": "assets/img/client-1.jpg",
-      "description": "Software Engineer"
+      "id": "187cb7e5-e097-4224-8bc7-b610c855e2b1",
+      "login": "admin",
+      "senha": "123",
+      "nome": "Administrador do Sistema",
+      "email": "admin@abc.com"
     },
     {
-      "id": "2",
-      "name": "Sarah Johnson",
-      "image": "assets/img/client-2.jpg",
-      "description": "Visitante"
+      "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
+      "login": "user",
+      "senha": "123",
+      "nome": "Usuario Comum",
+      "email": "user@abc.com"
+    }
+  ],
+  
+  "estatistica": [
+    {
+      "id": 1,
+      "nome": "Praia do Sol",
+      "categoria": "Praia",
+      "visitas": 1200,
+      "descricao": "Praia linda com águas cristalinas",
+      "imagem": "praia-sol.jpg"
     },
     {
-      "id": "3",
-      "name": "David Martinez",
-      "image": "assets/img/client-3.jpg",
-      "description": ""
+      "id": 2,
+      "nome": "Museu Histórico",
+      "categoria": "Cultural",
+      "visitas": 800,
+      "descricao": "Museu com artefatos históricos da região",
+      "imagem": "museu-historico.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Parque das Flores",
+      "categoria": "Parque",
+      "visitas": 1500,
+      "descricao": "Parque com jardins floridos e trilhas",
+      "imagem": "parque-flores.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Centro da Cidade",
+      "categoria": "Urbano",
+      "visitas": 500,
+      "descricao": "Praça central com comércio local",
+      "imagem": "centro-cidade.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Cachoeira da Serra",
+      "categoria": "Natureza",
+      "visitas": 950,
+      "descricao": "Cachoeira com piscinas naturais",
+      "imagem": "cachoeira-serra.jpg"
     }
   ]
 }
+
