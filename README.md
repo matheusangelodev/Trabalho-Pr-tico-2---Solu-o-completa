@@ -11,15 +11,19 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
+- Nome:Matheus Angelo Paranhos
+- Matricula:1598622
+- Proposta de projeto escolhida: Gui Turistico
 - Breve descrição sobre seu projeto:
 
 **Print da tela com a implementação**
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+A página estatisticas.html apresenta dois gráficos gerados com Chart.js:
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+- Gráfico 1: Quantidade de pontos turísticos por categoria.
+- Gráfico 2: Top 5 pontos turísticos mais visitados.
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+
+<img src="img/01.png" alt="Gráfico Categorias">
+
+<img src="img/02.png" alt="Gráfico Mais Visitados">
