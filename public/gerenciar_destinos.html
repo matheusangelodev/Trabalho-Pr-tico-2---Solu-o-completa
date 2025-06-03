@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerenciar Destinos</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    input[type="text"] {
+      width: 90%;
+    }
+    button {
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gerenciar Destinos</h1>
+
+  <table id="destinosTable">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Imagem</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Linhas serão geradas dinamicamente -->
+    </tbody>
+  </table>
+
+  <script>
+    const API_URL = "http://localhost:3000/destinations";
+
+    function carregarDestinos() {
+      fetch(API_URL)
+        .then(res => res.json())
+        .then(destinos => {
+          const tbody = document.querySelector("#destinosTable tbody");
+          tbody.innerHTML = "";
+
+          destinos.forEach(destino => {
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+              <td><input type="text" value="${destino.name}" data-id="${destino.id}" data-field="name"></td>
+              <td><input type="text" value="${destino.image}" data-id="${destino.id}" data-field="image"></td>
+              <td><input type="text" value="${destino.description}" data-id="${destino.id}" data-field="description"></td>
+              <td>
+                <button onclick="salvarDestino(${destino.id})">Salvar</button>
+                <button onclick="excluirDestino(${destino.id})">Excluir</button>
+              </td>
+            `;
+
+            tbody.appendChild(tr);
+          });
+        });
+    }
+
+    function salvarDestino(id) {
+      const inputs = document.querySelectorAll(`input[data-id='${id}']`);
+      const dadosAtualizados = {};
+
+      inputs.forEach(input => {
+        const campo = input.getAttribute("data-field");
+        dadosAtualizados[campo] = input.value;
+      });
+
+      fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dadosAtualizados)
+      })
+      .then(() => {
+        alert("Destino atualizado com sucesso!");
+        carregarDestinos();
+      });
+    }
+
+    function excluirDestino(id) {
+      if (confirm("Tem certeza que deseja excluir este destino?")) {
+        fetch(`${API_URL}/${id}`, {
+          method: "DELETE"
+        })
+        .then(() => {
+          alert("Destino excluído com sucesso!");
+          carregarDestinos();
+        });
+      }
+    }
+
+    // Carrega os destinos assim que a página abre
+    carregarDestinos();
+  </script>
+</body>
+</html>

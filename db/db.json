@@ -1,18 +1,62 @@
 {
-  "usuarios": [
+  "MelhoresDestinos": [
     {
-      "id": "187cb7e5-e097-4224-8bc7-b610c855e2b1",
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "id": "1",
+      "name": "Bhutan",
+      "image": "assets/img/destination-1.jpg",
+      "description": "Bhutan é um reino budista nas montanhas do Himalaia, famoso por seus mosteiros, fortalezas e paisagens espetaculares."
     },
     {
-      "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "id": "2",
+      "name": "Japan",
+      "image": "assets/img/destination-2.jpg",
+      "description": "O Japão combina tradição e tecnologia com templos antigos, culinária rica e paisagens impressionantes como o Monte Fuji."
+    },
+    {
+      "id": "3",
+      "name": "Nepal",
+      "image": "assets/img/destination-3.jpg",
+      "description": "Nepal abriga o Monte Everest e é conhecido por suas trilhas de trekking, templos e cultura espiritual vibrante."
+    }
+  ],
+  "destinos": [
+    {
+      "id": "1",
+      "name": "Thailand City Tour",
+      "image": "assets/img/package-1.jpg",
+      "description": "Explore the vibrant culture and stunning landscapes of Thailand's bustling cities."
+    },
+    {
+      "id": "2",
+      "name": "Laos City Tour",
+      "image": "assets/img/package-2.jpg",
+      "description": "Immerse yourself in the rich culture and stunning landscapes of Laos."
+    },
+    {
+      "id": "3",
+      "name": "Singapore City Tour",
+      "image": "assets/img/package-3.jpg",
+      "description": "Experience the vibrant blend of culture, cuisine, and cutting-edge architecture."
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "name": "Michael Lee",
+      "image": "assets/img/client-1.jpg",
+      "description": "Software Engineer"
+    },
+    {
+      "id": "2",
+      "name": "Sarah Johnson",
+      "image": "assets/img/client-2.jpg",
+      "description": "Visitante"
+    },
+    {
+      "id": "3",
+      "name": "David Martinez",
+      "image": "assets/img/client-3.jpg",
+      "description": ""
     }
   ]
 }

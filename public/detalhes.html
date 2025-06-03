@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="assets/css/detalhes.css"/>
+  <title>Detalhes do Destino</title>
+</head>
+<body>
+  <nav>
+    <div class="nav__logo">
+      <a href="index.html" class="logo">Travel<span>Dream</span></a>
+    </div>
+  </nav>
+
+<main class="detalhes__container">
+  <h1 id="destino-nome">Carregando...</h1>
+  <p id="destino-descricao">Por favor, aguarde...</p>
+  <img id="destino-imagem" src="" alt="" />
+  <a href="index.html" class="btn- btn-primary">Voltar</a>
+  
+</main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const destino = params.get('destino');
+
+const destinos = {
+  Bhutan: {
+    descricao: "Bhutan é um reino budista nas montanhas do Himalaia, famoso por seus mosteiros, fortalezas e paisagens espetaculares.",
+    imagem: "assets/img/destination-1.jpg"
+  },
+  Japan: {
+    descricao: "O Japão combina tradição e tecnologia com templos antigos, culinária rica e paisagens impressionantes como o Monte Fuji.",
+    imagem: "assets/img/destination-2.jpg"
+  },
+  Nepal: {
+    descricao: "Nepal abriga o Monte Everest e é conhecido por suas trilhas de trekking, templos e cultura espiritual vibrante.",
+    imagem: "assets/img/destination-3.jpg"
+  },
+  Thailand: {
+    descricao: "Explore a vibrante cultura e as paisagens deslumbrantes das movimentadas cidades da Tailândia.",
+    imagem: "assets/img/package-1.jpg"
+  },
+  Laos: {
+    descricao: "Mergulhe na cultura rica e nas paisagens deslumbrantes de Laos.",
+    imagem: "assets/img/package-2.jpg"
+  },
+  Singapore: {
+    descricao: "Experimente a vibrante mistura de cultura, culinária e arquitetura moderna em Singapura.",
+    imagem: "assets/img/package-3.jpg"
+  }
+};
+
+    if (destino && destinos[destino]) {
+      document.getElementById('destino-nome').textContent = destino;
+      document.getElementById('destino-descricao').textContent = destinos[destino].descricao;
+      document.getElementById('destino-imagem').src = destinos[destino].imagem;
+      document.getElementById('destino-imagem').alt = destino;
+    } else {
+      document.getElementById('destino-nome').textContent = "Destino não encontrado";
+      document.getElementById('destino-descricao').textContent = "Verifique se o nome do destino está correto.";
+    }
+  </script>
+</body>
+</html>
