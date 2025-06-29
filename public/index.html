@@ -12,7 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Web Design Mastery | TravelDream</title>
+    <title>Matheus Angelo Paranhos | TravelDream</title>
   </head>
   <body>
     <nav>
@@ -25,15 +25,12 @@
         </div>
       </div>
 <ul class="nav__links" id="nav-links">
-  <li><a href="#home">Inicio</a></li>
-  <li><a href="#servicos">Serviços</a></li>
-  <li><a href="estatisticas.html">Estatísticas</a></li>
-  <li><a href="#cadastro-destino">Cadastrar Destino</a></li>
-  <li><a href="#cadastro-usuario">Cadastrar Usuário</a></li>
-</ul>
+<li><a href="#home">Inicio</a></li>
+<li><a href="#servicos">Favoritos</a></li>
+<li><a href="estatisticas.html">Estatísticas</a></li>
+<li id="favoritosItem" style="display: none;"><a href="#cadastro-destino">Favoritos</a></li>
+<li id="loginLogoutItem"><a href="login.html">Login</a></li>
 
-
-      </ul>
     </nav>
     <header class="header" id="home">
       <div class="section__container header__container">
@@ -92,14 +89,17 @@
       <div class="destination__grid">
       <a href="detalhes.html?destino=Bhutan" class="destination__card">
       <img src="assets/img/destination-1.jpg" alt="Bhutan" />
+      <i class="ri-heart-line favorite-icon"></i>
       <div class="destination__content">Bhutan</div>
         </a>
       <a href="detalhes.html?destino=Japan" class="destination__card">
       <img src="assets/img/destination-2.jpg" alt="Japan" />
+      <i class="ri-heart-line favorite-icon"></i>
       <div class="destination__content">Japan</div>
       </a>
       <a href="detalhes.html?destino=Nepal" class="destination__card">
       <img src="assets/img/destination-3.jpg" alt="Nepal" />
+      <i class="ri-heart-line favorite-icon"></i>
       <div class="destination__content">Nepal</div>
       </a>
     </div>
@@ -107,162 +107,112 @@
       </div>
     </section>
 
-    <section class="discount">
-      <div class="section__container discount__container" id="maps">
-        <h2>
-          Os melhores lugares, voce encontra aqui!<br /><span>Confira os locais e navegue pelo o nosso google maps.</span>
-        </h2>
-        <div class="discount__btn">
-          <button class="btn">Navegar no Maps</button>
-        </div>
-      </div>
-    </section>
-
-<section class="section__container" id="cadastro-destino">
-      <h2 class="section__header">Destinos Cadastrados</h2>
-      <p class="section__description">
-        Lista de destinos cadastrado pelos os usuarios.
-      </p>
-        <a href="cadastro_destinations.html">
-    <button style="padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 5px;">
-      Cadastrar Destino
-    </button>
-  </a>
-</div>
-      <div class="package__grid">
-        <div class="package__card">
-          <img src="assets/img/package-1.jpg" alt="package" />
-          <div class="package__card__details">
-            <h4>Thailand City Tour</h4>
-            <p>
-              Explore the vibrant culture and stunning landscapes of Thailand's
-              bustling cities.
-            </p>
-            <div>
-              <a href="detalhes.html?destino=Thailand" class="btn">Detalhes</a>
-            </div>
-          </div>
-        </div>
-        <div class="package__card">
-          <img src="assets/img/package-2.jpg" alt="package" />
-          <div class="package__card__details">
-            <h4>Laos City Tour</h4>
-            <p>
-              Immerse yourself in the rich culture and stunning landscapes of
-              Laos.
-            </p>
-            <div>
-              <a href="detalhes.html?destino=Laos" class="btn">Detalhes</a>
-            </div>
-          </div>
-        </div>
-        <div class="package__card">
-          <img src="assets/img/package-3.jpg" alt="package" />
-          <div class="package__card__details">
-            <h4>Singapore City Tour</h4>
-            <p>
-              Experience the vibrant blend of culture, cuisine, and cutting-edge
-              architecture.
-            </p>
-            <div>
-              <a href="detalhes.html?destino=Singapore" class="btn">Detalhes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-<section class="section__container" id="cadastro-usuario">
-  <h2 class="section__header">Usuários Cadastrados</h2>
-  <p class="section__description">
-    Aqui você irá ver os usuários cadastrados!
-  </p>
-  <a href="cadastro_de_usuarios.html">
-    <button style="padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 5px;">
-      Cadastrar Usuários
-    </button>
-  </a>
-
-  <div class="swiper clientSwiper">
-    <div class="swiper-wrapper" id="user-slider-wrapper">
-      <!-- Slides serão inseridos via JavaScript -->
-    </div>
-
-    <!-- Bolinhas de paginação -->
-    <div class="swiper-pagination"></div>
-  </div>
-
-
-<!-- Slider main container -->
-<div class="swiper clientSwiper">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    <!-- Slides -->
-    <div class="swiper-slide">
-      <div class="client__card">
-        <img src="assets/img/client-1.jpg" alt="client" />
-        <span><i class="ri-double-quotes-l"></i></span>
-        <p>The instant booking feature is a game-changer. I secured my dream vacation to Bali in minutes!</p>
-        <h4>Michael Lee</h4>
-        <h5>Software Engineer</h5>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="client__card">
-        <img src="assets/img/client-2.jpg" alt="client" />
-        <span><i class="ri-double-quotes-l"></i></span>
-        <p>TravelDream made my vacation planning effortless and enjoyable. Their best price guarantee really delivered!</p>
-        <h4>Sarah Johnson</h4>
-        <h5>Marketing Manager</h5>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="client__card">
-        <img src="assets/img/client-3.jpg" alt="client" />
-        <span><i class="ri-double-quotes-l"></i></span>
-        <p>TravelDream offers an unbeatable combination of great prices and top customer service. Highly recommended!</p>
-        <h4>David Martinez</h4>
-        <h5>Financial Analyst</h5>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="client__card">
-        <img src="assets/img/client-4.jpg" alt="client" />
-        <span><i class="ri-double-quotes-l"></i></span>
-        <p>Booking with TravelDream was a breeze. Their user-friendly interface and instant confirmation saved me so much time.</p>
-        <h4>Olivia Brown</h4>
-        <h5>Event Planner</h5>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="client__card">
-        <img src="assets/img/client-5.jpg" alt="client" />
-        <span><i class="ri-double-quotes-l"></i></span>
-        <p>From booking to travel, every step was seamless. TravelDream truly makes travel dreams come true!</p>
-        <h4>James Wilson</h4>
-        <h5>Photographer</h5>
-      </div>
+<section class="discount">
+  <div class="section__container discount__container" id="maps">
+    <h2>
+      Os melhores lugares, você encontra aqui!<br />
+      <span>Confira os locais e navegue pelo o nosso Google Maps.</span>
+    </h2>
+    <div class="maps__image">
+      <img src="https://maps.googleapis.com/maps/api/staticmap?center=-23.55052,-46.633308&zoom=12&size=600x300&key=SUA_API_KEY" alt="Mapa da região" />
     </div>
   </div>
-
-
-</div>
-
 </section>
 
 
-    <section class="subscribe">
-      <div class="section__container subscribe__container">
-        <h2>Subscribe to our newsletter for updates</h2>
-        <div>
-          <p>For the best recommendation of your. Please subscribe us.</p>
-          <form action="/">
-            <input type="text" placeholder="Enter Your Email Here" />
-            <button class="btn">SUBSCRIBE</button>
-          </form>
+<section class="section__container" id="cadastro-destino">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h2 class="section__header">Todos os itens</h2>
+    <div class="search-box">
+      <input type="text" placeholder="pesquisa" class="search-input" />
+      <i class="ri-search-line search-icon"></i>
+    </div>
+  </div>
+
+  <div class="package__grid">
+    <div class="package__card">
+      <div class="package__image-container">
+        <img src="assets/img/package-1.jpg" alt="package" />
+        <i class="ri-heart-line favorite-icon"></i>
+      </div>
+      <div class="package__card__details">
+        <h4>Thailand City Tour</h4>
+        <p>
+          Explore the vibrant culture and stunning landscapes of Thailand's
+          bustling cities.
+        </p>
+        <a href="detalhes.html?destino=Thailand" class="btn">Detalhes</a>
+      </div>
+    </div>
+
+    <div class="package__card">
+      <div class="package__image-container">
+        <img src="assets/img/package-2.jpg" alt="package" />
+        <i class="ri-heart-line favorite-icon"></i>
+      </div>
+      <div class="package__card__details">
+        <h4>Laos City Tour</h4>
+        <p>Immerse yourself in the rich culture and stunning landscapes of Laos.</p>
+        <a href="detalhes.html?destino=Laos" class="btn">Detalhes</a>
+      </div>
+    </div>
+
+    <div class="package__card">
+      <div class="package__image-container">
+        <img src="assets/img/package-3.jpg" alt="package" />
+        <i class="ri-heart-line favorite-icon"></i>
+      </div>
+      <div class="package__card__details">
+        <h4>Singapore City Tour</h4>
+        <p>
+          Experience the vibrant blend of culture, cuisine, and cutting-edge
+          architecture.
+        </p>
+        <a href="detalhes.html?destino=Singapore" class="btn">Detalhes</a>
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+  </div>
+</div>
+
+<section class="student-info">
+  <h2>Informações do(a) Aluno(a)</h2>
+  <hr />
+  <div class="student-grid">
+    <div class="student-block">
+      <h3 class="title">Autoria do Trabalho</h3>
+      <div class="student-profile">
+        <div class="student-icon">👤</div>
+        <div class="student-details">
+          <p><strong>Aluno:</strong> Matheus Angelo</p>
+          <p><strong>Curso:</strong> Sistema de Informações</p>
+          <p><strong>Turma:</strong> Noite</p>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="student-block">
+      <h3 class="title">Sobre</h3>
+      <div class="about-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+<div class="student-block">
+  <h3 class="title">Redes Sociais</h3>
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank" title="Facebook" class="icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+    </a>
+    <a href="https://twitter.com" target="_blank" title="Twitter" class="icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+    </a>
+  </div>
+</div>
+  </div>
+</section>
 
     <footer class="footer">
       <div class="section__container footer__container">
@@ -325,46 +275,6 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="app.js"></script>
-    <script>
-  async function carregarUsuarios() {
-    const res = await fetch("http://localhost:3000/usuarios");
-    const usuarios = await res.json();
-    const wrapper = document.getElementById("user-slider-wrapper");
-
-    wrapper.innerHTML = usuarios.map(user => `
-      <div class="swiper-slide">
-        <div class="client__card">
-          <img src="${user.image}" alt="${user.name}" />
-          <span><i class="ri-double-quotes-l"></i></span>
-          <p>${user.review || "Nenhuma avaliação disponível."}</p>
-          <h4>${user.name}</h4>
-          <h5>${user.profession || user.description || ""}</h5>
-        </div>
-      </div>
-    `).join("");
-
-    new Swiper(".clientSwiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      }
-    });
-  }
-
-  carregarUsuarios();
-</script>
-
+    <script src="assets/scripts/app.js"></script>
   </body>
 </html>

@@ -1,29 +1,33 @@
 const form = document.getElementById("formCadastro");
-const nameInput = document.getElementById("name");
-const imageInput = document.getElementById("image");
-const descriptionInput = document.getElementById("description");
+const loginInput = document.getElementById("login");
+const senhaInput = document.getElementById("senha");
+const nomeInput = document.getElementById("nome");
+const emailInput = document.getElementById("email");
 const tableBody = document.getElementById("usuariosTableBody");
 const apiUrl = "http://localhost:3000/usuarios";
 
+// CADASTRO
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const newUser = {
-    name: nameInput.value,
-    image: imageInput.value,
-    description: descriptionInput.value
+  const novoUsuario = {
+    login: loginInput.value,
+    senha: senhaInput.value,
+    nome: nomeInput.value,
+    email: emailInput.value
   };
 
   await fetch(apiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newUser)
+    body: JSON.stringify(novoUsuario)
   });
 
   form.reset();
   loadUsers();
 });
 
+// CARREGAR USUÁRIOS
 async function loadUsers() {
   const res = await fetch(apiUrl);
   const data = await res.json();
@@ -34,9 +38,10 @@ async function loadUsers() {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
-      <td><img src="${user.image}" alt="${user.name}" width="50" height="50" style="border-radius: 50%"/></td>
-      <td contenteditable="true" data-field="name">${user.name}</td>
-      <td contenteditable="true" data-field="description">${user.description || ""}</td>
+      <td contenteditable="true" data-field="login">${user.login}</td>
+      <td contenteditable="true" data-field="senha">${user.senha}</td>
+      <td contenteditable="true" data-field="nome">${user.nome}</td>
+      <td contenteditable="true" data-field="email">${user.email}</td>
       <td>
         <button onclick="updateUser('${user.id}', this)">Salvar</button>
         <button onclick="deleteUser('${user.id}')">Excluir</button>
@@ -47,13 +52,15 @@ async function loadUsers() {
   });
 }
 
+// ATUALIZAR USUÁRIO
 window.updateUser = async function (id, btn) {
   const row = btn.closest("tr");
 
   const updatedUser = {
-    name: row.querySelector('[data-field="name"]').textContent.trim(),
-    image: row.querySelector("img").src,
-    description: row.querySelector('[data-field="description"]').textContent.trim()
+    login: row.querySelector('[data-field="login"]').textContent.trim(),
+    senha: row.querySelector('[data-field="senha"]').textContent.trim(),
+    nome: row.querySelector('[data-field="nome"]').textContent.trim(),
+    email: row.querySelector('[data-field="email"]').textContent.trim()
   };
 
   await fetch(`${apiUrl}/${id}`, {
@@ -65,6 +72,7 @@ window.updateUser = async function (id, btn) {
   loadUsers();
 };
 
+// EXCLUIR USUÁRIO
 window.deleteUser = async function (id) {
   if (confirm("Deseja realmente excluir este usuário?")) {
     await fetch(`${apiUrl}/${id}`, { method: "DELETE" });

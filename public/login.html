@@ -1,0 +1,49 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="login" placeholder="Login" required />
+    <input type="password" id="senha" placeholder="Senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+  <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("loginForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Evita recarregar a página
+
+        const loginDigitado = document.getElementById("login").value;
+        const senhaDigitada = document.getElementById("senha").value;
+
+        try {
+          const res = await fetch("http://localhost:3000/usuarios");
+          const usuarios = await res.json();
+
+          const usuario = usuarios.find(
+            (u) => u.login === loginDigitado && u.senha === senhaDigitada
+          );
+
+          if (usuario) {
+            sessionStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+            window.location.href = "index.html";
+          } else {
+            alert("Login ou senha inválidos!");
+          }
+        } catch (erro) {
+          console.error("Erro ao buscar usuários:", erro);
+          alert("Erro ao tentar login. Tente novamente mais tarde.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
